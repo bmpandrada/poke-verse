@@ -43,6 +43,7 @@ const Cards = ({ item, imgUrl, id }: CardProps) => {
               data-atropos-offset='5'
               src={`${imgUrl}/${id}.png`}
               className='max-h-28 object-contain drop-shadow-lg mb-1'
+              alt={item.name}
             />
 
             <p
