@@ -2,6 +2,7 @@ import { usePokeCardApi } from "../context/ContextApi";
 import Cards from "../components/cards/Cards";
 import { useMemo, useState, useEffect, useRef } from "react";
 import { useWindowVirtualizer } from "@tanstack/react-virtual";
+import SEO from "../components/SeoConfig";
 
 const getIdFromUrl = (url: string) => {
   const parts = url.split("/").filter(Boolean);
@@ -60,51 +61,58 @@ const HomePage = () => {
   if (error) return <p className='text-center text-red-400 p-6'>{error}</p>;
 
   return (
-    <div ref={parentRef} className='relative'>
-      <div
-        style={{
-          height: virtualizer.getTotalSize(),
-          width: "100%",
-          position: "relative",
-        }}
-      >
-        {virtualizer.getVirtualItems().map((virtualRow) => {
-          const rowIndex = virtualRow.index;
+    <>
+      <SEO
+        title='Welcom  to PokéVerse'
+        description='PokéVerse'
+        url='hhttps://poke-verse-neon.vercel.app/'
+      />
+      <div ref={parentRef} className='relative'>
+        <div
+          style={{
+            height: virtualizer.getTotalSize(),
+            width: "100%",
+            position: "relative",
+          }}
+        >
+          {virtualizer.getVirtualItems().map((virtualRow) => {
+            const rowIndex = virtualRow.index;
 
-          return (
-            <div
-              key={virtualRow.key}
-              ref={rowIndex === 0 ? rowRef : undefined}
-              className='grid gap-6 p-4'
-              style={{
-                gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))`,
-                position: "absolute",
-                top: 0,
-                left: 0,
-                transform: `translateY(${virtualRow.start}px)`,
-                height: virtualRow.size,
-                width: "100%",
-              }}
-            >
-              {Array.from({ length: columnCount }, (_, col) => {
-                const itemIndex = rowIndex * columnCount + col;
-                const data = memoizedList[itemIndex];
-                if (!data) return null;
+            return (
+              <div
+                key={virtualRow.key}
+                ref={rowIndex === 0 ? rowRef : undefined}
+                className='grid gap-6 p-4'
+                style={{
+                  gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))`,
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  transform: `translateY(${virtualRow.start}px)`,
+                  height: virtualRow.size,
+                  width: "100%",
+                }}
+              >
+                {Array.from({ length: columnCount }, (_, col) => {
+                  const itemIndex = rowIndex * columnCount + col;
+                  const data = memoizedList[itemIndex];
+                  if (!data) return null;
 
-                return (
-                  <Cards
-                    key={data.item.name}
-                    item={data.item}
-                    imgUrl={data.imgUrl}
-                    id={data.id}
-                  />
-                );
-              })}
-            </div>
-          );
-        })}
+                  return (
+                    <Cards
+                      key={data.item.name}
+                      item={data.item}
+                      imgUrl={data.imgUrl}
+                      id={data.id}
+                    />
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
