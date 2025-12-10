@@ -37,8 +37,8 @@ const Layout = () => {
             absolute inset-0 
             bg-[url('/nebula-cloud-1.svg')]
             bg-no-repeat
-            bg-[length:1100px]
-            bg-[left_-250px_top_45%]
+            bg-size-[1000px]
+            bg-position-[left_-250px_top_45%]
             opacity-25 saturate-150 blur-[3px]
             mix-blend-lighten
             animate-[nebulaFloat_22s_ease-in-out_infinite]
@@ -52,9 +52,9 @@ const Layout = () => {
             absolute inset-0 
             bg-[url('/nebula-cloud-2.svg')]
             bg-no-repeat
-            bg-[length:1250px]
-            bg-[right_-300px_top_40%]
-            opacity-25 saturate-200 blur-[4px]
+            bg-size-[1250px]
+            bg-position-[right_-400px_top_30%]
+            opacity-25 saturate-200 blur-[100px]
             mix-blend-screen
             animate-[nebulaMove_18s_ease-in-out_infinite]
             mask-[radial-gradient(circle,black_60%,transparent_100%)]
@@ -77,9 +77,9 @@ const Layout = () => {
             absolute inset-0
             bg-[url('/nebula-cloud-1.svg')]
             bg-no-repeat
-            bg-[length:900px]
-            bg-[right_10%_top_35%]
-            opacity-15 blur-[4px]
+            bg-size-[900px]
+            bg-position-[right_10%_top_35%]
+            opacity-15 blur-xs
             mix-blend-lighten
             animate-[parallaxNebula_25s_linear_infinite]
             mask-[radial-gradient(circle,black_60%,transparent_100%)]
