@@ -26,32 +26,63 @@ const Layout = () => {
         bg-linear-to-b from-[#0a0f16] via-[#0d1422] to-[#0f1724]
       '
     >
-      {/* ===== GALAXY BACKGROUND ===== */}
+      {/* ==================== GALAXY BACKGROUND ==================== */}
       <div className='absolute inset-0 overflow-hidden pointer-events-none'>
         {/* Deep space base */}
         <div className='absolute inset-0 bg-linear-to-b from-[#05070d] via-[#0a0f16] to-[#0f1a2e]' />
 
-        {/* Nebula 1 */}
+        {/* 🌌 LEFT NEBULA (soft glow, masked to remove lines) */}
         <div
           className="
             absolute inset-0 
             bg-[url('/nebula-cloud-1.svg')]
-            bg-cover bg-center
-            opacity-35 blur-[1px] saturate-150
+            bg-no-repeat
+            bg-[length:1100px]
+            bg-[left_-250px_top_45%]
+            opacity-25 saturate-150 blur-[3px]
             mix-blend-lighten
-            animate-[nebulaMove_18s_ease-in-out_infinite]
+            animate-[nebulaFloat_22s_ease-in-out_infinite]
+            mask-[radial-gradient(circle,black_60%,transparent_100%)]
           "
         />
 
-        {/* Nebula 2 */}
+        {/* 🌌 RIGHT NEBULA (premium cosmic beam, softened) */}
         <div
           className="
             absolute inset-0 
             bg-[url('/nebula-cloud-2.svg')]
-            bg-cover bg-center 
-            opacity-30 blur-[2px]
+            bg-no-repeat
+            bg-[length:1250px]
+            bg-[right_-300px_top_40%]
+            opacity-25 saturate-200 blur-[4px]
+            mix-blend-screen
+            animate-[nebulaMove_18s_ease-in-out_infinite]
+            mask-[radial-gradient(circle,black_60%,transparent_100%)]
+          "
+        />
+
+        {/* CENTER cosmic haze */}
+        <div
+          className='
+            absolute inset-0 
+            bg-[radial-gradient(circle_at_center,rgba(80,120,255,0.15),transparent_70%)]
+            opacity-40 blur-[2px]
+            mix-blend-screen
+          '
+        />
+
+        {/* PARALLAX highlight */}
+        <div
+          className="
+            absolute inset-0
+            bg-[url('/nebula-cloud-1.svg')]
+            bg-no-repeat
+            bg-[length:900px]
+            bg-[right_10%_top_35%]
+            opacity-15 blur-[4px]
             mix-blend-lighten
-            animate-[nebulaFloat_22s_ease-in-out_infinite]
+            animate-[parallaxNebula_25s_linear_infinite]
+            mask-[radial-gradient(circle,black_60%,transparent_100%)]
           "
         />
 
@@ -85,12 +116,12 @@ const Layout = () => {
         </div>
       </div>
 
-      {/* ===== HERO SECTION ===== */}
+      {/* ==================== HERO ==================== */}
       <div className='pt-24 pb-12 relative z-10'>
         <Hero />
       </div>
 
-      {/* ===== MAIN CONTENT (FLOATING, NO BORDER) ===== */}
+      {/* ==================== MAIN CONTENT ==================== */}
       <section
         className='
           max-w-5xl w-full mx-auto
