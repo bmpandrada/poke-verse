@@ -9,7 +9,6 @@ interface CardProps {
   id: string | number;
 }
 
-
 const Cards = ({ item, imgUrl, id }: CardProps) => {
   return (
     <Link to={`pokemon/${item.name}`} className='block w-full cursor-pointer'>
@@ -72,7 +71,7 @@ const Cards = ({ item, imgUrl, id }: CardProps) => {
             shadow-[0_0_12px_rgba(59,130,246,0.45)]
             text-white text-sm font-semibold
             transition-all
-            pointer-events-none   <!-- FIX para di ma-block ang Link! -->
+            pointer-events-none 
           '
             >
               View Details
