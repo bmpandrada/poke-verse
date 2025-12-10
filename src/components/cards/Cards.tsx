@@ -44,6 +44,7 @@ const Cards = ({ item, imgUrl, id }: CardProps) => {
               src={`${imgUrl}/${id}.png`}
               className='max-h-28 object-contain drop-shadow-lg mb-1'
               alt={item.name}
+              loading='lazy'
             />
 
             <p

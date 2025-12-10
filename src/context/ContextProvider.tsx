@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { PokeListItem } from "../types";
 import { ContextPokeCards } from "./ContextApi";
 import axios from "axios";
@@ -14,36 +14,34 @@ const ContextPokeCardProvider = ({ children }: ContextProps) => {
   const url = import.meta.env.VITE_API_POKECARDS_API;
 
   useEffect(() => {
-    let isMounted: boolean = true;
-    const connectPokeApi = async () => {
+    const controller = new AbortController();
+    const fetchData = async () => {
       try {
-        const res = await axios(url);
-        const data = res.data;
-        
-        if (isMounted) {
-          setPokeCard(data.results);
-        }
+        const res = await axios.get(url, { signal: controller.signal });
+
+        setPokeCard(res.data.results);
       } catch (err) {
+        if (axios.isCancel(err)) return;
         if (err instanceof Error) {
           setError(err.message);
         } else {
           setError("Unknow error");
         }
       } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
+        setLoading(false);
       }
     };
 
-    connectPokeApi();
-    return () => {
-      isMounted = false;
-    };
+    fetchData();
+    return () => controller.abort();
   }, [url]);
 
+  const value = useMemo(() => {
+    return { pokeCard, error, loading };
+  }, [pokeCard, error, loading]);
+
   return (
-    <ContextPokeCards.Provider value={{ pokeCard, error, loading }}>
+    <ContextPokeCards.Provider value={value}>
       {children}
     </ContextPokeCards.Provider>
   );
