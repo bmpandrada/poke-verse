@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@300;400;500;600&display=swap");
+
+:root {
+  --font-title: "Bungee", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@import "tailwindcss";
+@plugin "daisyui";
+@import "atropos/scss";
+
+/* HOLO SHINE SWEEP */
+@keyframes holo-shine {
+  0% {
+    transform: translateX(-150%) rotate(25deg);
+  }
+  50% {
+    transform: translateX(150%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(150%) rotate(25deg);
+  }
+}
+
+/* Floating particle animation */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-12px) translateX(6px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.6;
+  }
+}
+/* Floating nebula animation */
+@keyframes nebulaMove {
+  0% {
+    transform: translate3d(-30px, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(30px, -20px, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(-30px, 0, 0) scale(1);
+  }
+}
+
+@keyframes nebulaFloat {
+  0% {
+    transform: translate3d(0, 25px, 0) scale(1.1);
+  }
+  50% {
+    transform: translate3d(-25px, -15px, 0) scale(1.18);
+  }
+  100% {
+    transform: translate3d(0, 25px, 0) scale(1.1);
+  }
+}
+
+@keyframes holoTitle {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.45);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
