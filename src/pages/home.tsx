@@ -23,7 +23,7 @@ const HomePage = () => {
   const imgUrl = import.meta.env.VITE_API_POKECARDS_API_IMG;
 
   const [columnCount, setColumnCount] = useState(getColumnCount());
-  const [rowHeight, setRowHeight] = useState(270);
+  const [rowHeight, setRowHeight] = useState(280);
 
   useEffect(() => {
     if (rowRef.current) {
@@ -74,7 +74,7 @@ const HomePage = () => {
           return (
             <div
               key={virtualRow.key}
-              ref={rowIndex === 0 ? rowRef : undefined} 
+              ref={rowIndex === 0 ? rowRef : undefined}
               className='grid gap-6 p-4'
               style={{
                 gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))`,
