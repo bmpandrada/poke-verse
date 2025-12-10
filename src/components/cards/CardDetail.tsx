@@ -5,6 +5,7 @@ import type { PokeCardTypes } from "../../types";
 import { typeColors, typeNebula } from "./typeThemes";
 import CardHeaderImg from "./CardHeaderImg";
 import CardDetailContent from "./CardDetailContent";
+import SEO from "../SeoConfig";
 
 const CardDetails = () => {
   const { name } = useParams();
@@ -51,24 +52,31 @@ const CardDetails = () => {
   const nebulaBg = typeNebula[primaryType] ?? typeNebula.normal;
 
   return (
-    <div className='flex justify-center mt-10 animate-fadeIn'>
-      <div
-        className='
+    <>
+      <SEO
+        title='Card | PokéVerse'
+        description='PokéVerse'
+        url={`https://poke-verse-neon.vercel.app/pokemon/${pokemon.name}`}
+      />
+      <div className='flex justify-center mt-10 animate-fadeIn'>
+        <div
+          className='
           w-[420px] rounded-2xl overflow-hidden
           bg-[#0d1224]/80 backdrop-blur-xl
           shadow-[0_0_30px_rgba(59,130,246,0.25)]
           border border-blue-500/20
         '
-      >
-        <CardHeaderImg
-          particles={particles}
-          nebulaBg={nebulaBg}
-          pokemon={pokemon}
-        />
+        >
+          <CardHeaderImg
+            particles={particles}
+            nebulaBg={nebulaBg}
+            pokemon={pokemon}
+          />
 
-        <CardDetailContent pokemon={pokemon} typeColors={typeColors} />
+          <CardDetailContent pokemon={pokemon} typeColors={typeColors} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
