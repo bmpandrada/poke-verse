@@ -12,6 +12,10 @@ const CardDetails = () => {
   const [err, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const url = import.meta.env.VITE_POKEMON_API;
 
   // ⭐ PARTICLES para same as layout
