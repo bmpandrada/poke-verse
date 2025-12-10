@@ -3,8 +3,19 @@ import { Outlet } from "react-router";
 import { useState } from "react";
 import React from "react";
 
+type Particle = {
+  left: string;
+  top: string;
+  delay: string;
+};
+
+type Star = {
+  left: string;
+  top: string;
+};
+
 const Layout = () => {
-  const [particles] = useState(() =>
+  const [particles] = useState<Particle[]>(() =>
     [...Array(40)].map(() => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
@@ -12,7 +23,8 @@ const Layout = () => {
     })),
   );
 
-  const [parallaxStars] = useState(() =>
+  // INITIAL RANDOM STARS (safe, allowed, runs once)
+  const [parallaxStars] = useState<Star[]>(() =>
     [...Array(25)].map(() => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
