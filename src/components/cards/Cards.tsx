@@ -1,12 +1,14 @@
 import { Link } from "react-router";
 import Atropos from "atropos/react";
-import type { PokeListItem } from "../types";
+import type { PokeListItem } from "../../types";
+import React from "react";
 
 interface CardProps {
   item: PokeListItem;
   imgUrl: string;
   id: string | number;
 }
+
 
 const Cards = ({ item, imgUrl, id }: CardProps) => {
   return (
@@ -17,7 +19,7 @@ const Cards = ({ item, imgUrl, id }: CardProps) => {
         rotateXMax={8}
         rotateYMax={8}
         alwaysActive={true}
-        className='w-full rounded-xl'
+        className='w-full rounded-xl overflow-hidden'
       >
         <div
           className='
@@ -34,7 +36,7 @@ const Cards = ({ item, imgUrl, id }: CardProps) => {
           <figure
             className='
           relative h-48 w-full flex flex-col items-center justify-center
-          bg-gradient-to-br from-[#11182d] via-[#1b2b4b] to-[#0d1224]
+          bg-linear-to-r from-[#11182d] via-[#1b2b4b] to-[#0d1224]
           border-b border-blue-400/20
         '
           >
@@ -82,4 +84,4 @@ const Cards = ({ item, imgUrl, id }: CardProps) => {
   );
 };
 
-export default Cards;
+export default React.memo(Cards);
