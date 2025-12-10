@@ -96,6 +96,7 @@ const CardHeaderImg = ({ particles, nebulaBg, pokemon }: CardDetailProps) => {
           data-atropos-offset='8'
           src={pokemon?.sprites?.other?.["official-artwork"]?.front_default}
           className='w-44 relative z-20 drop-shadow-[0_8px_20px_rgba(0,0,0,0.55)]'
+          alt={pokemon.name}
         />
       </div>
     </Atropos>

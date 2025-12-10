@@ -16,7 +16,7 @@ const CardDetailContent = ({ pokemon, typeColors }: CardDetailContent) => {
       </h1>
 
       <div className='text-center'>
-        <h3 className='font-bold text-blue-300 mb-1'>Types</h3>
+        <h3 className='font-bold text-blue-200 mb-1'>Types</h3>
         <div className='flex justify-center gap-2'>
           {pokemon?.types?.map((t, i) => (
             <span
@@ -32,7 +32,7 @@ const CardDetailContent = ({ pokemon, typeColors }: CardDetailContent) => {
       </div>
 
       <div>
-        <h3 className='font-bold text-blue-300 mb-1'>Abilities</h3>
+        <h3 className='font-bold text-blue-200 mb-1'>Abilities</h3>
         <ul className='list-disc list-inside text-blue-100'>
           {pokemon?.abilities?.map((a, i) => (
             <li key={i} className='capitalize'>
@@ -43,7 +43,7 @@ const CardDetailContent = ({ pokemon, typeColors }: CardDetailContent) => {
       </div>
 
       <div>
-        <h3 className='font-bold text-blue-300 mb-2'>Stats</h3>
+        <h3 className='font-bold text-blue-200 mb-2'>Stats</h3>
         <div className='space-y-3'>
           {pokemon?.stats?.map((s, i) => (
             <div key={i}>
