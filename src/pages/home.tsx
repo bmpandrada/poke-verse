@@ -19,7 +19,7 @@ const HomePage = () => {
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const perPage = 50;
+  const perPage = 40;
 
   const totalPage = Math.ceil(pokeCard.length / perPage);
 
