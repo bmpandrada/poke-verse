@@ -44,3 +44,9 @@ export interface PokeCardTypes {
     };
   }[];
 }
+// VITRUAL TYPES
+export interface VirtualContextType {
+  columnCount: number;
+  rowHeight: number;
+  updateColumns: () => void;
+}
