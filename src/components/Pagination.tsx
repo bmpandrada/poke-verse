@@ -37,11 +37,11 @@ const Pagination = React.memo(
                 key={idx}
                 onClick={() => handleClick(Number(p))}
                 className={`
-                  px-3 py-1 rounded transition duration-300
+                  px-3 py-1 rounded transition duration-300 cursor-pointer
                   ${
                     currentPage === p
-                      ? "bg-base-content text-white"
-                      : "bg-base-content/60 text-gray-200 hover:bg-base-content"
+                      ? "bg-blue-600 hover:bg-blue-500"
+                      : "bg-blue-500 hover:bg-blue-600"
                   }
                 `}
               >
