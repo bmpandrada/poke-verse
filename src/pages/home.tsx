@@ -19,7 +19,7 @@ const HomePage = () => {
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const perPage = 12;
+  const perPage = 50;
 
   const totalPage = Math.ceil(pokeCard.length / perPage);
 
@@ -96,7 +96,7 @@ const HomePage = () => {
   );
 
   useEffect(() => {
-      virtualizer.scrollToIndex(0, { align: "start", behavior: "smooth" });
+    virtualizer.scrollToIndex(0, { align: "start", behavior: "smooth" });
   }, [currentPage, virtualizer]);
 
   useEffect(() => {
